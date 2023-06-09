@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ADMIN PANEL</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Electrolize' rel='stylesheet' type='text/css' />
+
+
+</head>
+<body>
+
+<div class="codrops-top">
+			<span class="left">
+				<a href="/profil">
+					<strong>Вернуться на сайт</strong>
+				</a>
+			</span>
+    <div class="clr"></div>
+</div>
+
+<!-- Home -->
+<div id="home" class="panel">
+    <div class="content">
+<!--        <form action="/root" method="get">-->
+            <!--<h1>Список записей ТО</h1>-->
+            <table>
+                <thead>
+                <tr>
+                    <h2>Каталог самокатов</h2>
+                    <th>Название</th>
+                    <th>Цена</th>
+                    <th>Img</th>
+                </tr>
+                </thead>
+                <tbody>
+
+
+                <tr>
+                    <form th:action="@{/root/addProduct}" method="post">
+<!--                        <td>-->
+                            <label for="name"></label>
+                            <input class = "btn btn-outline-primary ms-1" type="text" id="name" name="name" value=""/>
+                            <label for="sum"></label>
+                            <input class = "btn btn-outline-primary ms-1" type="text" id="sum" name="sum" value=""/>
+                            <label for="img"></label>
+
+                            <input class = "btn btn-outline-primary ms-1" type="text" id="img" name="img" value=""/>
+                            <button class="btn btn-outline-primary ms-1" type="submit">addproduct</button>
+
+<!--                        </td>-->
+                    </form>
+                </tr>
+                <!-- Используем Thymeleaf для динамического отображения данных -->
+                <tr th:each="el : ${products}">
+                    <td th:text="${el.name}"></td>
+                    <td th:text="${el.sum}"></td>
+                    <td th:text="${el.img}"></td>
+                </tr>
+                </tbody>
+            </table>
+<!--        </form>-->
+    </div>
+</div>
+
+
+
+<div id="portfolio" class="panel">
+    <div class="content">
+            <!--<h1>Список записей ТО</h1>-->
+            <table>
+                <thead>
+                <tr>
+                    <h2>База заказов</h2>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Email</th>
+                    <th>Адресс</th>
+                    <th>Способ оплаты</th>
+                    <th>Наименование продукта</th>
+                    <th>Статус заказа</th>
+                </tr>
+                </thead>
+
+
+                <tbody>
+                <!-- Используем Thymeleaf для динамического отображения данных -->
+
+                <tr th:each="el : ${posts}">
+
+                    <td th:text="${el.name}"></td>
+                    <td th:text="${el.family}"></td>
+                    <td th:text="${el.email}"></td>
+                    <!--<td th:text="${order.engineCapacity}"></td>-->
+                    <td th:text="${el.address}"></td>
+                    <td th:text="${el.payment}"></td>
+                    <td th:text="${el.sname}"></td>
+
+                    <div th:switch="${el.status}">
+                        <td class="statusN" th:case="'PROCESSING'">PROCESSING</td>
+                        <td class="statusS" th:case="'SUCCESSFULLY'">SUCCESSFULLY</td>
+                        <td class="statusN" th:case="*">Авторизируйтесь повторно</td>
+                    </div>
+                    <form action="/root" method="post">
+                        <input class = "none" type="text" name="id" id="id" th:value="${el.id}">
+                        <td>
+                            <button class="btn btn-outline-primary ms-1" type="submit">Change status</button>
+                        </td>
+                    </form>
+                </tr>
+                </tbody>
+            </table>
+    </div>
+</div>
+
+
+<div id="about" class="panel">
+    <div class="content">
+        <table>
+            <thead>
+            <tr>
+                <h2>База пользователей</h2>
+                <th>ID</th>
+                <th>Имя пользователя</th>
+                <th>Роль</th>
+                <th>Изменить роль</th>
+                <th>Удалить пользователя</th>
+            </tr>
+            </thead>
+
+
+            <tbody>
+            <!-- Используем Thymeleaf для динамического отображения данных -->
+
+            <tr th:each="el : ${users}">
+
+                <td th:text="${el.id}"></td>
+                <td th:text="${el.username}"></td>
+                <td th:text="${el.role}"></td>
+                <!--<td th:text="${order.engineCapacity}"></td>-->
+
+<!--                <div th:switch="${el.status}">-->
+<!--                    <td class="statusN" th:case="'PROCESSING'">PROCESSING</td>-->
+<!--                    <td class="statusS" th:case="'SUCCESSFULLY'">SUCCESSFULLY</td>-->
+<!--                    <td class="statusN" th:case="*">Авторизируйтесь повторно</td>-->
+<!--                </div>-->
+                <form action="/root/changerole" method="post">
+                    <input class = "none" type="text" name="id" th:value="${el.id}">
+                    <td>
+                        <button class="btn btn-outline-primary ms-1" type="submit">Change role</button>
+                    </td>
+                </form>
+                <form action="/root/deleteuser" method="post">
+                    <input class = "none" type="text" name="id" th:value="${el.id}">
+                    <td>
+                        <button class="btn btn-outline-primary ms-1" type="submit">Delete user</button>
+                    </td>
+                </form>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<div id="header">
+    <h1>ADMIN PANEL</h1>
+    <ul id="navigation">
+        <li><a id="link-home" href="#home">Каталог самокатов</a></li>
+        <li><a id="link-portfolio" href="#portfolio">База заказов</a></li>
+        <li><a id="link-about" href="#about">ALL USERS</a></li>
+    </ul>
+
+<!--    <nav id="codrops-demos">-->
+<!--        <a href="index.html#home">Demo 1</a>-->
+<!--        <a class="current-demo" href="#home">Demo 2</a>-->
+<!--        <a href="index3.html#home">Demo 3</a>-->
+<!--    </nav>-->
+</div>
+
+</body>
+</html>
+

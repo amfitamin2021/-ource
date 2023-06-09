@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+    
+        <link type="image/png" rel="shortcut icon" href="./img/favicon1.png">
+        <link rel="stylesheet" href="./css/oplata.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>Магазин</title>
+    </head>
+
+<body>
+
+
+<div th:insert="blocks/header :: header"></div>
+
+
+
+
+
+    <div class="wrapper_oplata">
+
+        <nav class="woocommerce-breadcrumb"><a href="index.html">Главная</a> / <span>Оплата и доставка</span></nav>
+        <h2 class="help_title">У нас лучшая доставка!</h2>
+
+        <div class="entry-content">
+
+            <p class="has-text-align-center has-medium-font-size">Мы работаем с такими службами доставки как СДЭК,
+                Деловые линии, Байкал сервис, Главдоставка</p>
+
+
+
+            <p class="has-text-align-center">Забрать приобретенную технику<br>вы можете несколькими способами:</p>
+
+
+
+            <div class="is-layout-flex wp-container-4 wp-block-columns">
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (1).webp" alt="картинка">
+                        </a>
+                    </div>
+
+
+                    <p class="has-text-align-center">Заказать бесплатную курьерскую доставку<br>(по Москве иПодмосковью)</p>
+                </div>
+
+
+
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (2).webp" alt="картинка">
+                        </a>
+                    </div>
+
+
+                    <p class="has-text-align-center">Заказать отправку в регионы транспортной компанией. Доставка
+                        бесплатная до пункта выдачи транспортной компании</p>
+                </div>
+
+
+
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (6).webp" alt="картинка">
+                        </a>
+                    </div>
+
+
+                    <p class="has-text-align-center">Самостоятельно забрать технику из магазина</p>
+                </div>
+            </div>
+
+
+
+            <h2 class="has-text-align-center"><strong>Способы оплаты</strong></h2>
+
+
+
+            <p class="has-text-align-center has-medium-font-size">Наличными в офисе или курьеру, картой VISA, Mastrcard,
+                MIR, а так же на расчетный счет</p>
+
+
+
+            <div class="is-layout-flex wp-container-8 wp-block-columns">
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (5).webp" alt="картинка">
+                        </a>
+                    </div>
+
+
+                    <p class="has-text-align-center">При приобретении техники в магазине оплата возможна наличными, по
+                        карте, и по безналичному расчету.</p>
+                </div>
+
+
+
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (4).webp" alt="картинка">
+                        </a>
+                    </div>
+
+
+                    <p class="has-text-align-center">При курьерской доставке оплата наличными возможна только при
+                        приобретении техники, стоимостью до 20 000 рублей</p>
+                </div>
+
+
+
+                <div class="is-layout-flow wp-block-column">
+                    <div class="wp-block-image">
+                        <a class="aligncenter size-full">
+                            <img class = "wp-image-637" src="./img/oplata (3).webp" alt="картинка">
+                        </a>
+
+                    </div>
+
+
+                    <p class="has-text-align-center">Также существует услуга дистанционного осмотра приобретаемой
+                        техники.<br>Подробности уточняйте у менеджеров</p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <section class="service_callback">
+        <h2>Остались вопросы?</h2>
+        <div class="service_callback_desc">Позвоните или напишите нам и мы проконсультируем вас по сервису и услугам
+            нашего магазина</div>
+        <div class="callback_btn" data-callmehead="получить консультацию">
+            НАПИСАТЬ
+        </div>
+        <div class="callback_social_links">
+
+        </div>
+    </section>
+
+    <!-- ----------------------------------------------------------------------------------------------------------------------------------     -->
+    <!-- Футер-нижняя часть сайта -->
+
+    <div th:insert="blocks/footer :: footer"></div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>   
+
+</body>
+
+</html>

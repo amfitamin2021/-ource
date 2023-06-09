@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link type="image/png" rel="shortcut icon" href="./img/favicon1.png">
+    <link rel="stylesheet" href="./css/katalog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Магазин</title>
+</head>
+
+
+<body>
+
+
+<!-- /* <--------------Шапочка--------------------------------------------------->
+
+
+<div th:insert="blocks/header :: header"></div>
+
+
+<!-------------------------------Интро--------------------------->
+
+
+
+
+
+<section class="choice_help">
+  <div class="wrapper">
+      <nav class="woocommerce-breadcrumb"><a href="index.html">Главная</a> / <span>Каталог</span></nav>
+      <h2 class="help_title">Для кого вы выбираете электросамокат?</h2>
+      <p class="h2_desc"> Мы знаем, что посоветовать
+          каждому клиенту под его запрос</p>
+      <div class="choice_grid">
+          <a href="index.html" class="adult img_none">
+              <div class="choice_desc">
+                  <h3>Для взрослых</h3>
+                  <ul>
+                      <li>Подойдут всем - если нет особых требований</li>
+                  </ul>
+              </div>
+          </a>
+          <a href="index.html" class="tall">
+              <img class="help_img "
+                  src="https://cim-pro.ru/wp-content/themes/cim-pro/assets/img/casual-male-riding-e.png"
+                  alt="Картинка">
+              <div class="choice_desc">
+                  <h3>Для высоких</h3>
+                  <ul>
+                      <li>Увеличенная высота рулевой стойки</li>
+                      <li>Оптимальная площадь Дэки</li>
+                  </ul>
+              </div>
+          </a>
+          <a href="index.html" class="big img_none">
+              <div class="choice_desc">
+                  <h3>Для крупных</h3>
+                  <ul>
+                      <li>Шасси рассчитано для больших нагрузок</li>
+                  </ul>
+              </div>
+          </a>
+          <a href="index.html" class="adult kids">
+              <img src="https://cim-pro.ru/wp-content/themes/cim-pro/assets/img/full-shot-smiley-gir.png"
+                  alt="Картинка">
+              <div class="choice_desc">
+                  <h3>Для детей</h3>
+                  <ul>
+                      <li>Специализированные модели</li>
+                      <li>Безопасная скорость и конструкция</li>
+                  </ul>
+              </div>
+          </a>
+          <a href="index.html" class="adult girls">
+              <img src="https://cim-pro.ru/wp-content/themes/cim-pro/assets/img/young-woman-riding-e.png"
+                  alt="Картинка">
+              <div class="choice_desc">
+                  <h3>Для девушек</h3>
+                  <ul>
+                      <li>Вес не более 25кг</li>
+                      <li>Просты в управлении и использовании</li>
+                  </ul>
+              </div>
+          </a>
+      </div>
+  </div>
+
+</section>
+
+
+
+<!-- /* <------------------------Каталог---------------------------->
+<div class="katalog">
+      <h2 class="help_title">Самокаты на любой вкус!</h2>
+    <div class="cards">
+    <section id="section-6">
+
+        <div th:each="el : ${products}" class="card6">
+          <div class="imgBox">
+              <img th:src="${el.img}" class="trade"/>
+          </div>
+
+          <div class="contentBox">
+            <h4 th:text="${el.name}"></h4>
+            <h2  th:text="${el.sum}" class="price"></h2>
+              <form action="/order" method="get">
+                  <input class = "null" name="name" th:value="${el.name}">
+                  <button class="buy" type="submit">Купить</button>
+              </form>
+
+          </div>
+
+        </div>
+    </section>
+  </div>
+</div>
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------     -->
+    <!-- Футер-нижняя часть сайта -->
+
+    <div th:insert="blocks/footer :: footer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

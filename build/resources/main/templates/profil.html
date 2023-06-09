@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+    <link type="image/png" rel="shortcut icon" href="./img/favicon1.png">
+    <link rel="stylesheet" href="./css/profil.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Магазин</title>
+
+
+    <style>
+        /* Стили для таблицы */
+        body {
+            font-family: "Montserrat";
+            margin: 10px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .header {
+            color: #cccccc;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background: rgba(218, 157, 107, 0.712);
+            color: white;
+        }
+
+        td {
+            background-color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: white;
+        }
+
+        /* Стили для контейнера */
+        .container {
+            width: 80%;
+            margin: auto;
+            padding-top: 50px;
+        }
+
+        /* Стили для заголовка */
+        .sub-title {
+            text-align: center;
+            color: honeydew;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- /* <--------------Шапочка--------------------------------------------------->
+    <div th:insert="blocks/header :: header"></div>
+
+    <div class="container emp-profile">
+        <div class="row">
+            <div class="col-md-4">
+                <div th:if="${role.equals('ADMIN')}" class="profile-img">
+                    <img src="https://i.ytimg.com/vi/RmG8NOgE1rU/maxresdefault.jpg" alt=""/>
+                </div>
+                <div th:if="${role.equals('USER')}" class="profile-img">
+                    <img src="https://sun9-5.userapi.com/impf/c849216/v849216635/3079a/5-IiHEQctoY.jpg?size=960x960&quality=96&sign=8395a104b3aca31cc25945d2ec8bfbfa&c_uniq_tag=C0N5o2PpLYm85PmtIRRurpJqOJZxEg928CgH_YpW7QU&type=album" alt=""/>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                        <h3><i><span th:text="${username}"></span></i></h3>
+                    </h5>
+                    <p class="proile-rating">Рейтинг : <span>8/10</span></p>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Заказы</a>
+                        </li>
+                        <li th:if="${role.equals('ADMIN')}" class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="/root" role="tab" aria-controls="profile" aria-selected="false">ADMIN</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center mb-2">
+                <form th:action="@{/logout}" method="post">
+                    <button class="btn btn-outline-primary ms-1" type="submit">Logout</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>Бонусы</p>
+                    <a href="">Скидка 15%</a><br/>
+                    <a href="">Доставка день в день</a><br/>
+                    <a href="">Мнгновенный ответ поддержки</a>
+                    <p>Награды</p>
+                    <a href="">Покупатель 2020</a><br/>
+                    <a href="">Покупатель 2021</a><br/>
+                    <a href="">Покупатель 2022</a><br/>
+                    <a href="">Покупатель 2023</a><br/>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <form action="/orders" method="get">
+                            <!--<h1>Список записей ТО</h1>-->
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th>Имя</th>
+                                    <th>Фамилия</th>
+                                    <th>Email</th>
+                                    <th>Адресс</th>
+                                    <th>Способ оплаты</th>
+                                    <th>Товар</th>
+                                    <th>Cтатус заказа</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <!-- Используем Thymeleaf для динамического отображения данных -->
+                                <tr th:each="el : ${posts}">
+                                    <td th:text="${el.name}"></td>
+                                    <td th:text="${el.family}"></td>
+                                    <td th:text="${el.email}"></td>
+                                    <!--<td th:text="${order.engineCapacity}"></td>-->
+                                    <td th:text="${el.address}"></td>
+                                    <td th:text="${el.payment}"></td>
+                                    <td th:text="${el.sname}"></td>
+
+                                    <div th:switch="${el.status}">
+                                        <p th:case="'PROCESSING'"><td class="statusN" th:text="${el.status}"></td></p>
+                                        <p th:case="'SUCCESSFULLY'"><td class="statusS" th:text="${el.status}"></td></p>
+                                        <p th:case="*"><td class="statusN" th:text="'Авторизируйтесь повторно'"></td></p>
+                                    </div>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Experience</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Hourly Rate</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>10$/hr</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Total Projects</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>230</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>English Level</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>Expert</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Availability</label>
+                            </div>
+                            <div class="col-md-6">
+                                <p>6 months</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:insert="blocks/footer :: footer"></div>
+
+</body>
+</html>

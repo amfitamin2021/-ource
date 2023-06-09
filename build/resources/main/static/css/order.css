@@ -1,0 +1,17 @@
+.g-5{
+    padding-top: 8em;
+    padding-bottom: 5em;
+    padding-left: 20em;
+}
+.help_title{
+    margin-bottom: 20px;
+    color: #1a2026;
+    background: linear-gradient(45deg, rgb(247,148,109), rgb(193,85,116));
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 30px;
+}
+
+.null{
+    display: none;
+}

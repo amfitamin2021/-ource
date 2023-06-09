@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ru">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./css/index.css">
+    <link type="image/png" rel="shortcut icon" href="./img/favicon1.png">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Магазин</title>
+</head>
+
+
+<body>
+
+    <!-- /* <--------------Шапочка--------------------------------------------------->
+<div th:insert="blocks/header :: header"></div>
+
+    <!-- /* <-----------Интро-------------------------------------------------------->
+
+    <div class="intro">
+
+        <div class="container_2">
+            <div class="intro_inner">
+                <div class="intro_wrapper">
+                    <div class="intro_title"> Добро пожаловать в</div>
+                    <div class="intro_subtitle">Наш магазин</div>
+                    <div class="intro_subtitle2">ДОМ ЭЛЕКТРОСАМОКАТОВ</div>
+                    <div class="intro_btn">
+                        <span><a href="/katalog"></a></span>
+                    </div>
+                </div>
+
+                <img class="intro_img"
+                    src="https://thumb.tildacdn.com/tild3661-6565-4932-b036-363936396330/-/resize/506x/-/format/webp/4641fb7493e5dd3490e0.png"
+                    alt="Samokat">
+            </div>
+        </div>
+    </div>
+
+<!-- <------------------Line------------------------------------------------------------------>
+
+
+
+<!-- /* <----------------Слайдеры------------------------------------------------------------->
+
+
+</div>
+<div class="swipe_main">
+    <div class="swiper_wrapper">
+        <div class="swipe_main">
+            <div class="swiper mySwiper_1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/white1.png">
+                        <p class="description">Электросамокат Joyor Y1</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/white2.png">
+                        <p class="description">Емкость аккумулятора: 8000 AH </p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/white3.png">
+                        <p class="description">Мощность двигателя: 400W</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат Joyor Y1<br>Рабочее напряжение:
+                            36V <br> Время зарядки: 4 часа
+                            <br>Максимальная скорость: 40 км/ч
+                            <br>Пробег на одном заряде: до 35 км
+                            <br> Аккумулятор: Li-ion (литий-ионный)
+                            <br>Диаметр колёс: 10 дюймов
+                            <br>Тормоз: Дисковые
+                            <br> Колёса: Камерные
+                            <br> Вес: 11500 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+
+        </div>
+        <div class="swipe_main">
+            <div class="swiper mySwiper_2">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/yellow(3).png">
+                        <p class="description">Электросамокат EVO Pro</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/yellow(2).png">
+                        <p class="description">Емкость аккумулятора: 7.800 AH</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/yellow(4).png">
+                        <p class="description">Мощность двигателя: 350W</p>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат EVO Pro<br>Рабочее напряжение:
+                            36V <br> Время зарядки: 4 часа
+                            <br> Максимальная скорость: 35 км/ч
+                            <br> Пробег на одном заряде: 25-35 км
+                            <br> Аккумулятор: Li-ion (литий-ионный)
+                            <br> Диаметр колёс: 8.5 дюймов
+                            <br> Тормоз: Задний Дисковый
+                            <br> Колёса: Камерные
+                            <br> Вес: 11500 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+        </div>
+
+        <div class="swipe_main">
+            <div class="swiper mySwiper_3">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/blue (1).png">
+                        <p class="description">Электросамокат EVO Pro Blue</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/blue (2).png">
+                        <p class="description">Емкость аккумулятора: 7.800 AH</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/blue (3).png">
+                        <p class="description">Мощность двигателя: 350W</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат EVO Pro Blue<br>Рабочее
+                            напряжение: 36V <br> Время зарядки: 4 часа
+                            <br>Максимальная скорость: 25-30 км/ч
+                            <br>Пробег на одном заряде: до 30 км
+                            <br> Аккумулятор: Li-ion (литий-ионный)
+                            <br>Диаметр колёс: 8.5 дюймов
+                            <br>Тормоз: Дисковые
+                            <br> Колёса: Камерные
+                            <br> Вес: 11500 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+        </div>
+
+        <div class="swipe_main">
+            <div class="swiper mySwiper_4">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/green (1).png">
+                        <p class="description">Электросамокат Woolongu G-M4 Pro</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/green (2).png">
+                        <p class="description">Емкость аккумулятора: 15.000 AH</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/green (3).png">
+                        <p class="description">Мощность двигателя: 800 W</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат Woolongu G-M4 Pro <br>Рабочее
+                            напряжение: 54V <br> Время зарядки: 6 часов
+                            <br>Максимальная скорость: 55 км/ч
+                            <br>Пробег на одном заряде: до 35 - 40км
+                            <br>Аккумулятор: Li-ion (литий-ионный)
+                            <br>Диаметр колёс: 10 дюймов
+                            <br>Тормоз: передние и задние, дисковые
+                            <br>Колёса: Камерные
+                            <br>Вес: 25000 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+        </div>
+
+        <div class="swipe_main">
+            <div class="swiper mySwiper_5">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/black (1).png">
+                        <p class="description">Электросамокат Bogist G- max Blake</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/black (2).png">
+                        <p class="description">Емкость аккумулятора: 15.000 AH</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/black (3).png">
+                        <p class="description">Мощность двигателя: 500 W</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат Bogist G- max Blake<br>Рабочее
+                            напряжение: 48V <br> Время зарядки: 6 часов
+                            <br>Максимальная скорость: 35 км/ч
+                            <br>Пробег на одном заряде: до 40 км
+                            <br> Аккумулятор: Li-ion (литий-ионный)
+                            <br>Диаметр колёс: 10 дюймов
+                            <br>Тормоз: Дисковые
+                            <br> Колёса: Камерные
+                            <br> Вес: 25000 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+        </div>
+
+        <div class="swipe_main">
+            <div class="swiper mySwiper_6">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="./img/orange (3).png">
+                        <p class="description">Электросамокат Bogist E5</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/orange (2).png">
+                        <p class="description">Емкость аккумулятора: 13.000 AH</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="./img/orange (3).png">
+                        <p class="description">Мощность двигателя: 600 W</p>
+                    </div>
+                    <div class="swiper-slide">
+                        <p class="description description__top"> Электросамокат Bogist E5<br>Рабочее напряжение:
+                            48V <br> Время зарядки: 6 часов
+                            <br>Максимальная скорость: 50 км/ч
+                            <br>Пробег на одном заряде: до 45 км
+                            <br> Аккумулятор: Li-ion (литий-ионный)
+                            <br>Диаметр колёс: 10 дюймов
+                            <br>Тормоз: Дисковые
+                            <br> Колёса: Камерные
+                            <br>Привод: задний
+                            <br> Вес: 24500 г
+                        </p>
+                        <a href="/order" class="btn description description__more"
+                            data-path="form-popup">Купить</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-next button"></div>
+                <div class="swiper-button-prev button"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<!-- ----------------------------------------------------------------------------------------------------------------------------------     -->
+<!-- Футер-нижняя часть сайта -->
+
+    <div th:insert="blocks/footer :: footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="./script.js"></script>
+
+
+
+</body>
+
+</html>
